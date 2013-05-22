@@ -8,7 +8,9 @@ require.config({
         text: "../lib/text",
         noty: "../lib/noty/jquery.noty",
         notytheme: "../lib/noty/themes/default",
-        notylayout: "../lib/noty/layouts/top"
+        notylayout: "../lib/noty/layouts/top",
+        postal: "../lib/postal",
+        treeify: "util/treeify"
     },
     shim: {
         underscore:   { exports: "_" },
@@ -19,9 +21,13 @@ require.config({
     }
 });
 
-require(['util/console', 'ui/notify', 'jquery'],
-        function (Console, Notify, $) {
+require(['util/console', 'ui/notify', 'bus'],
+        function (Console, Notify, Bus) {
     "use strict";
-    Notify.success("hello world");
-    Console.log("hi", $);
+    Bus.session.started._.subscribe(function (session) {
+        Notify.success("fake bus signal received " + session.username);
+        Console.log("hi", session.username);
+    });
+
+    Bus.session.started._.publish({username: "mariano"});
 });
