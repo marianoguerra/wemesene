@@ -6,8 +6,33 @@
  padding: 0;
 }
 
+html, body{
+ width: 100%;
+ height: 100%;
+}
+
 body {
  background: #111;
  color: #fefefe;
  font-family: sans-serif;
+}
+
+.contact-list-container{
+ width: 25%;
+}
+
+.contact-list-body, .contact-list>header, .contact-list>footer{
+ width: 100%;
+ display: table;
+}
+
+.contact-list-body{
+ height: 90%;
+ overflow: auto;
+}
+
+.contact-list-search{
+ width: 100%;
+ border: 1px solid #666;
+ padding: 0.2em;
 }

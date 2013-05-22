@@ -17,6 +17,8 @@ define(["postal", "treeify"], function (Bus, Tree) {
     function getNewInstance() {
         return Tree.create({
             "contact": {
+                "connected": null,
+                "disconnected": null,
                 "status": "changed",
                 "attribute": "changed"
             },
